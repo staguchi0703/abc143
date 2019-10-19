@@ -16,6 +16,19 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('C', num_list)
+num = int(input())
+line = input()
+
+res = ''
+before_color = ''
+
+for item in line:
+    if item == before_color:
+        pass
+    else:
+        res += item
+    
+    before_color = item
+
+print(len(res))
 

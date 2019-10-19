@@ -16,6 +16,14 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('A', num_list)
+A, B= [int(item) for item in input().split()]
+
+temp_res = A - B * 2
+
+if temp_res < 0:
+    res = 0
+else:
+    res = temp_res
+
+print(res)
 

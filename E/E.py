@@ -16,6 +16,36 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('E', num_list)
+import numpy as np
+
+N, M, L = [int(item) for item in input().split()]
+
+load_list = []
+for _ in range(M):
+    load_list.append([int(item) for item in input().split()])
+
+Q = int(input())
+
+query_list = []
+for _ in range(Q):
+    query_list.append([int(item) for item in input().split()])
+
+
+def search_dist(load_list, query):
+
+    query = sorted(query)
+
+    for load in load_list:
+        if load[:1] == query:
+            distance = load[2]
+    return distance
+    
+
+def cunt_refill(L, )
+
+for query in query_list:
+    search_dist(load_list, query)
+
+
+
 

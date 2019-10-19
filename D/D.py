@@ -16,6 +16,19 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('D',num_list)
+num = int(input())
+pole_list = sorted([int(item) for item in input().split()])
+
+cnt = 0
+
+for a in pole_list:
+
+    for b in pole_list:
+
+        c_list = [c for c in  pole_list if c < a + b]
+        for c in c_list:
+            if a < b +c and b <a + c and c < b + a:
+                cnt +=1
+
+print(cnt)
 

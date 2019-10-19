@@ -16,6 +16,14 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
+num = int(input())
 num_list = [int(item) for item in input().split()]
-print('B', num_list)
 
+sum_heal = 0
+
+for i, item_d1 in enumerate(num_list):
+    for k, item_d2 in enumerate(num_list):
+        if i > k:
+            sum_heal += item_d1 * item_d2
+
+print(sum_heal)
