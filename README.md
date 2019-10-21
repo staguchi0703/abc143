@@ -18,8 +18,51 @@ VScodeでat_coderのABCに参加するための準備
 ## 回答
 
 ### D
-今回も計算オーダを減らす方法が分からず撃沈
-他の人の回答みたら二分法でうまくやってるっぽい
+#### 感想
+* 今回も計算オーダを減らす方法が分からず撃沈
+* 他の人の回答みたら二分法でうまくやってるっぽい
+* numpyのwhere使って数えても計算速度が足りなかった
+* 
+#### 気づき
+* リストから組み合わせを考えるとき、重複をさけたり、大小関係を使ったりする場合のポイント
+  * forでindexを回して、最後にリストから取り出したほうが便利
+  * indexの重複可否を決められる
+  * indexの大小関係を使える
+  * ネストしたループを作るとき、以下のように記述すると重複を避けられる
+
+```python3
+    for i in range(N):
+        for j in range(i+1, N):
+```
+
+* 二分法
+
+  * 使い方
+    * `bisect_right()`と`bisect()`は同じ操作
+    * 今回の問題は同じ値でも棒は区別できるので値の重複は残すため`bisect_left()`を使用する
+
+
+``` python
+from bisect import bisect
+from bisect import bisect_right
+from bisect import bisect_left
+
+lst = [0, 3, 3, 3, 5]
+
+# bisect
+#   値をリストに
+#   差し込む位置を返してくれます。
+bisect(         lst, 3)  # 4
+bisect_right(   lst, 3)  # 4
+bisect_left(    lst, 3)  # 1
+
+```
+
+ * 二分法標準ライブラリのソース
+
+
+
+
 #### TODO
 今回の二分法の解き方理解
 過去問のDを練習する

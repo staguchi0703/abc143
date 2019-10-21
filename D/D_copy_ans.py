@@ -14,17 +14,15 @@ sys.stdin=f
 # num_list = [int(item) for item in input().split()]
 # num_list = [input() for _ in range(3)]
 ##################################
-# %%
-# 以下ペースト可
-num = int(input())
-pole_list = sorted([int(item) for item in input().split()])
+from bisect import bisect_left
+ 
+N = int(input())
+Lmat = [int(n) for n in input().split()]
+Lmat.sort()
+ 
+sum = 0
 
-from bisect import bisect_left as bil
-
-cnt = 0
-
-for i in range(num):
-    for j in range(i + 1, num):
-        cnt += bil(pole_list, pole_list[i] + pole_list[j]) - j - 1
-print(cnt)
-
+for i in range(N):
+    for j in range(i + 1, N):
+        sum += bisect_left(Lmat, Lmat[i]+Lmat[j]) - (j + 1)
+print(sum)
